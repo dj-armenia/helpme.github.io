@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OneList</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to top right, #d5888c, #fdfafa 43%, #fdfafa 56%, #85365f);
+  margin: 0 auto;
+  padding: 20px 50px;
+}
+
+.crowd-funding {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  min-height: 550px;
+  max-height: 1000px;
+  box-shadow: 0px 2px 4px hsla(0, 0%, 0%, .18);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .27);
+  border-radius: 3px;
+  
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 55%;
+    min-height: 300px;
+    padding: 20px 30px;
+    background: linear-gradient(
+      rgba(133, 54, 95, .8), 
+      rgba(200, 70, 87, .8)
+    ), url('https://images.unsplash.com/photo-1444212477490-ca407925329e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=86d24240ca6b1df611e98ed6bd7a1efc&auto=format&fit=crop&w=1400&q=80');
+
+    background: linear-gradient(
+      rgba(200, 70, 87, .3),
+      rgba(133, 54, 95, .8)
+      ), url('https://images.unsplash.com/photo-1444212477490-ca407925329e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=86d24240ca6b1df611e98ed6bd7a1efc&auto=format&fit=crop&w=1400&q=80');
+    
+    background-size: cover;
+    background-position: center;
+    color: #fdfafa;
+    border-radius: 3px 3px 0 0;
+    // border-bottom: 6px solid #85365f;
+    
+    h1 {
+        font-size: 50px;
+        letter-spacing: 3px;
+        margin-bottom: 7px;
+        padding: 0;
+        line-height: 50px;
+        opacity: .9;
+      }
+      
+    p {
+      font-size: 16px;
+      opacity: .8;
+      margin: 0 0 3px 0;
+      padding: 0;
+      line-height: 18px;
+    }
+
+    .hashtags {
+      opacity: .8;
+      font-size: 10px;
+      margin-top: 5px;
+    }
+    
+    &__description {
+      width: 40%;
+    }
+    
+    &__details {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      
+      .days-to-go {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      
+      .funding-counter {
+        display: flex;
+        flex-direction: column;
+        
+        p {
+          opacity: 1;
+          
+          @media (max-width: 523px) {
+            font-size: 12px;
+          }
+        }
+        
+        &__bar {
+          width: 100%;
+          height: 5px;
+          border: 1px solid #fff;
+          margin-top: 3px;
+          background: linear-gradient(to right, #fff 40%, transparent 40%);
+          border-radius: 1px;
+        }
+      }
+    }
+  }
+  
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    height: 45%;
+    min-height: 250px;
+    padding: 20px 30px;
+    background: #fdfafa;
+    color: #85365f;
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+        
+    h4 {
+      margin: 0 0 10px 0;
+    }
+    
+    .content {
+      font-size: 12px;
+      font-weight: 300;
+      margin: 5px 0;
+      line-height: 16px;
+    }
+    
+    &__col {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      
+      .icon {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+      }
+      
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 150px;
+        margin-top: 15px;
+        color: #fdfafa;
+        background-color: #85365f;
+        border: 1px solid #85365f;
+        border-radius: 2px;
+        transition: all 200ms;
+        cursor: pointer;
+        
+        &:hover {
+          background: #fdfafa;
+          color: #85365f;
+        }
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 5px 0 0 0;
+        
+        li {
+          position: relative;
+          padding-left: 15px;
+        }
+        
+        .list-content {
+          font-size: 12px;
+          font-weight: 300;
+          margin: 7px 0;
+        }
+        
+        li::before {
+          box-sizing: border-box;
+          position: absolute;
+          left: 0;
+          top: 2px;
+          content: "";
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          border: 2px solid #85365f;
+        }
+      }
+    }
+    
+  }
+}
+
+.arrow {
+  position: absolute;
+  content: "";
+  top: calc(50% - 10px);
+  width: 25px;
+  height: 25px;
+  transform: rotate(45deg);
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.arrow-right {
+  right: -40px;
+  border-top: 2px solid #85365f;
+  border-right: 2px solid #85365f;
+  
+  &:hover {
+    right: -43px;
+  }
+}
+
+.arrow-left {
+  left: -40px;
+  border-bottom: 2px solid #85365f;
+  border-left: 2px solid #85365f;
+  
+  &:hover {
+    left: -43px;
+  }
+}
+
+.inspired-by {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 800px;
+  a {
+    font-size: 14px;
+    padding: 3px 0;
+    text-decoration: none;
+    color: #85365f;
+    opacity: .8;
+  }
+  
+  a.second-link {
+    margin-left: 3px 
+  }
+}
+    </style>
+</head>
+<body>
+<div id="app" class="crowd-funding">
+  <div class="crowd-funding__header">
+    
+    <div class="crowd-funding__header__description">
+      <h1>Հանուն Երեխաների</h1>
+      <p>Spark, Flash and Buddy wants to sleep in a comfy dog house this winter.</p>
+      <div class="hashtags">#puppy #crowdfunding #winter #dogs #help</div>
+    </div>
+    
+    <div class="crowd-funding__header__details">
+      <h1>1</h1>
+      <p class="days-to-go">Մնաց 23 օր</p>
+      <div class="funding-counter">
+        <p><strong>400 / 800000 դրամ</strong></p>
+        <div class="funding-counter__bar"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <text-slide>
+    <div class="crowd-funding__main" :key="activeNum">
+
+      <div class="crowd-funding__main__col col1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="#85365f">
+      <path d="M 26.978516 3.0214844 C 26.978516 3.0214844 18 3 11 10 C 10.676811 10.323189 10.395406 10.675024 10.140625 11.039062 C 8.8995439 10.939831 6.9997651 10.972248 6.0273438 11.945312 C 3.7573437 14.215312 3 18 3 18 L 8 17.285156 L 8 19 L 11 22 L 12.714844 22 L 12 27 C 12 27 15.784688 26.242656 18.054688 23.972656 C 19.027752 23.000235 19.060169 21.100456 18.960938 19.859375 C 19.324976 19.604594 19.676811 19.323189 20 19 C 27 12 26.978516 3.0214844 26.978516 3.0214844 z M 19 9 C 20.105 9 21 9.895 21 11 C 21 12.105 20.105 13 19 13 C 17.895 13 17 12.105 17 11 C 17 9.895 17.895 9 19 9 z M 7.1992188 19.996094 C 6.8192188 20.096094 6.4591094 20.286984 6.1621094 20.583984 C 4.7961094 21.949984 5.0136719 24.984375 5.0136719 24.984375 C 5.0136719 24.984375 8.0281094 25.219938 9.4121094 23.835938 C 9.7091094 23.538937 9.9 23.176875 10 22.796875 L 9.5429688 22.339844 C 9.4979688 22.403844 9.4701094 22.478156 9.4121094 22.535156 C 8.4371094 23.510156 6.9746094 23.023438 6.9746094 23.023438 C 6.9746094 23.023438 6.4868906 21.560938 7.4628906 20.585938 C 7.5208906 20.527938 7.59225 20.501078 7.65625 20.455078 L 7.1992188 19.996094 z"></path>
+  </svg>
+        <h4>Կատարել Նվիրատվություն</h4>
+        <span class="content">Ինչպես կատարել նվիրաբերության:</span>
+        <span class="content">Նախագծին աջակցել կարող եք, կատարելով նվիրաբերություն արշավի <strong>Իդրամ հաշվին</strong>  ստորև նշված QR կոդի օգնությամբ</span>
+        <div class="button"><strong><small>Նվիրաբերել հիմա</small></strong></div>
+      </div>
+
+      <div class="crowd-funding__main__col col2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="#85365f">
+      <path d="M 6.5292969 2.515625 A 1 1 0 0 0 5.8085938 2.8085938 A 1 1 0 0 0 5.8085938 4.2226562 A 1 1 0 0 0 7.2226562 4.2226562 A 1 1 0 0 0 7.2226562 2.8085938 A 1 1 0 0 0 6.5292969 2.515625 z M 23.5 2.515625 A 1 1 0 0 0 22.777344 2.8085938 A 1 1 0 0 0 22.777344 4.2226562 A 1 1 0 0 0 24.191406 4.2226562 A 1 1 0 0 0 24.191406 2.8085938 A 1 1 0 0 0 23.5 2.515625 z M 15 3 C 10.029 3 6 7.029 6 12 C 6 17 10 19 12 23 L 18 23 C 20 19 24 17 24 12 C 24 7.029 19.971 3 15 3 z M 15 6 L 15 11 L 19 11 L 15 18 L 15 13 L 11 13 L 15 6 z M 3 11 A 1 1 0 0 0 2 12 A 1 1 0 0 0 3 13 A 1 1 0 0 0 4 12 A 1 1 0 0 0 3 11 z M 27 11 A 1 1 0 0 0 26 12 A 1 1 0 0 0 27 13 A 1 1 0 0 0 28 12 A 1 1 0 0 0 27 11 z M 6.5292969 19.484375 A 1 1 0 0 0 5.8066406 19.777344 A 1 1 0 0 0 5.8066406 21.191406 A 1 1 0 0 0 7.2226562 21.191406 A 1 1 0 0 0 7.2226562 19.777344 A 1 1 0 0 0 6.5292969 19.484375 z M 23.498047 19.486328 A 1 1 0 0 0 22.777344 19.777344 A 1 1 0 0 0 22.777344 21.193359 A 1 1 0 0 0 24.191406 21.193359 A 1 1 0 0 0 24.191406 19.777344 A 1 1 0 0 0 23.498047 19.486328 z M 12 25 L 12 26 C 12 27.105 12.895 28 14 28 A 1 1 0 0 0 15 29 A 1 1 0 0 0 16 28 C 17.105 28 18 27.105 18 26 L 18 25 L 12 25 z"></path>
+  </svg>
+        <h4>«ՉՀՀՅՈՒ» ԲՀ/Կ -ն սկսում է նոր բարեգործական արշավ</h4>
+        <ul>
+          <li class="list-content">Մեկնարկում է «ՉՀՀՅՈՒ»-ի «Հանուն երեխաների» բարեգործական նախաձեռնությունը, որի նպատակն է առավել խոցելի և անապահով ընտանիքների երեխաներին հնարավորություն տալ մասնակցելու ամառային մեկշաբաթյա ճամբարին: Այս տարի կազմակերպությունը ամռան ամիսներին անցկկացնի ճամբարներ` խոցելի ընտանիքներում ապրող երեխաներին կտրելով առօրյա գորշ գույներից և նվիրելով անմոռանալի ամառային հանգիստ:</li>
+          <li class="list-content">Այս տարվա ընթացքում ավելի քան 120 երեխա այցելելու է «Չհհյու»-ի ճամբար, որը կազմակերպվելու է ինչպես կազմակերպության միջոցներով, այնպես էլ հայաստանյան ընկերությունների և անհատների բարեգործական նվիրատվությունների շնորհիվ:Այս տարի «Չհհյու»-ն նախատեսում է երեխաների համար կազմակերպել երեք թեմատիկ ճամբար՝ աղետների ժամանակ ռիսկերի նվազեցման, մարդու իրավունքների և տեղեկատվական տեխնոլոգիաների ուղղվածությամբ:
+</li>
+          <li class="list-content">Երեխաների երազանքն իրականացնելու համար «Չհհյու»-ն նախաձեռնում է համապետական բարեգործական արշավ, որի նպատակն է միջոցներ հայթայթել` 120 անապահով երեխայի մեկ շաբաթով ամառային ճամբար ուղարկելու համար: Ակցիան անցկացվելու է Հունիսի 22-ից Հուլիսի 16-ը, ակցիայի կայքում: Ակցիայի շրջանակներում կայքում կտեղադրվեն ծառեր, որոնց վրա յուրաքանչյուր  նվիրաբերող  քաղաքացի հնարավորություն կունենա կախել անվանական ցուցանակ՝ կատարելով նվիրատվություն 1500-6000 և ավելի դրամի չափով: Նշենք, որ յուրաքանչյուր երեխայի մեկշաբաթյա հանգստի ուղեգիրն արժե 50.000 ՀՀ դրամ։ </li>
+          <li class="list-content">Բացի այդ` նախատեսվում է ակցիայի շրջանակներում ներգրավել այլ կազմակերպությունների, որոնց լոգոտիպներով մեծ չափսի ցուցանակներ կտեղադրվեն ծառի շուրջ: Նվիրատվություն հնարավոր կլինի կատարել առցանց` donate.am կայքի միջոցով կամ կատարելով փոխանցում ընկերության իդրամ դրամապանակին կայքում տեղադրված QR կոդի միջոցով:
+</li>
+        </ul>
+      </div>
+
+    </div>
+  </text-slide>
+  
+  <span class="arrow arrow-left" @click="onClick"></span>
+  <span class="arrow arrow-right" @click="onClick"></span>
+  
+</div>
+<div class="inspired-by">
+  <a target="_blank" href="https://dribbble.com/shots/3874641-Daily-UI-Day-32-Crowdfunding">
+    <small>inspired by <strong>this dribbble</strong> shot</small>
+  </a>
+  <a class="second-link" target="_blank" href="https://codepen.io/akosstegner/pen/MQvbEe">
+    <small> and <strong>this pen</strong></small>
+  </a>
+</div>
+    <script>
+   Vue.component('text-slide', {
+  template: `
+<transition
+  :css="false"
+  name="text-slide"
+  mode="out-in"
+  @enter="enter"
+  @leave="leave"
+>
+  <slot></slot>
+</transition>
+`,
+  data: () => ({
+  }),
+  methods: {
+    enter (el, onComplete) {
+      let timeline = anime.timeline({ complete: onComplete })
+      timeline.add({
+        targets: [
+          '.crowd-funding__header__description h1',
+          '.crowd-funding__header__description p',
+          '.hashtags',
+          '.icon',
+          'h4',
+          '.content',
+          'li'
+        ],
+        translateY: [250, 0],
+        easing: 'easeOutSine',
+        duration: 500,
+        opacity: [0, 1],
+        delay: (el, i, l) => i * 50
+      })
+    },
+
+    leave (el, onComplete) {
+      let timeline = anime.timeline({
+        complete: onComplete
+      })
+      
+      timeline.add({
+        targets: [
+          '.crowd-funding__header__description h1',
+          '.crowd-funding__header__description p',
+          '.hashtags',
+          '.icon',
+          'h4',
+          '.content',
+          'li'
+        ],
+        translateY: [0, -250],
+        easing: 'easeInExpo',
+        duration: 500,
+        opacity: [1, 0],
+        delay: (el, i, l) => i * 50
+      })
+    }
+  }
+});
+
+
+new Vue({
+  el: '#app',
+  data: () => ({
+    items: [
+      {
+        mainTitle: `here's the deal.`
+      },
+      {
+        mainTitle: `here's another deal.`
+      }
+    ],
+    activeNum: 0
+  }),
+  
+  computed: {
+    activeItem() {
+      return this.items[this.activeNum];
+    }  
+  },
+  
+  methods: {
+    onClick() {
+      this.activeNum = this.activeNum >= (this.items.length - 1) ? 0 : ++this.activeNum;
+    }
+  }
+});
+</script>
+</body>
+    </html>
